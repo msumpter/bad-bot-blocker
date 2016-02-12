@@ -1,7 +1,7 @@
 Bad Bot Blocker
 ===============
 
-223 Apache htaccess rules to block bad bots.
+232 Apache htaccess rules to block bad bots.
 
 Bad bots are defined as:
 
