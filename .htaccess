@@ -23,6 +23,7 @@ SetEnvIfNoCase User-Agent "BLEXBot" bad_bot
 SetEnvIfNoCase User-Agent "^BlowFish" bad_bot
 SetEnvIfNoCase User-Agent "BLP_bbot" bad_bot
 SetEnvIfNoCase User-Agent "^BotALot" bad_bot
+SetEnvIfNoCase User-Agent "^btcrawler" bad_bot
 SetEnvIfNoCase User-Agent "Buddy" bad_bot
 SetEnvIfNoCase User-Agent "^BuiltBotTough" bad_bot
 SetEnvIfNoCase User-Agent "^Bullseye" bad_bot
@@ -68,6 +69,7 @@ SetEnvIfNoCase User-Agent "^gotit" bad_bot
 SetEnvIfNoCase User-Agent "^GrabNet" bad_bot
 SetEnvIfNoCase User-Agent "^Grafula" bad_bot
 SetEnvIfNoCase User-Agent "^Harvest" bad_bot
+SetEnvIfNoCase User-Agent "heritrix" bad_bot
 SetEnvIfNoCase User-Agent "^hloader" bad_bot
 SetEnvIfNoCase User-Agent "^HMView" bad_bot
 SetEnvIfNoCase User-Agent "^HTTrack" bad_bot
@@ -158,6 +160,7 @@ SetEnvIfNoCase User-Agent "^ReGet" bad_bot
 SetEnvIfNoCase User-Agent "^RepoMonkey" bad_bot
 SetEnvIfNoCase User-Agent "^RMA" bad_bot
 SetEnvIfNoCase User-Agent "rogerbot" bad_bot
+SetEnvIfNoCase User-Agent "SemrushBot" bad_bot
 SetEnvIfNoCase User-Agent "Siphon" bad_bot
 SetEnvIfNoCase User-Agent "^SiteSnagger" bad_bot
 SetEnvIfNoCase User-Agent "^SlySearch" bad_bot
@@ -237,8 +240,9 @@ SetEnvIfNoCase User-Agent "Baiduspider" bad_bot
 SetEnvIfNoCase User-Agent "Yandex" bad_bot
 
 # Generic UAs that might be abusive
+#SetEnvIfNoCase User-Agent "Apache-HttpClient" bad_bot
 #SetEnvIfNoCase User-Agent "curl" bad_bot
-#SetEnvIfNoCase User-Agent ""Go-http-client" bad_bot
+#SetEnvIfNoCase User-Agent "Go-http-client" bad_bot
 
 <Limit GET POST HEAD>
 Order Allow,Deny
@@ -258,4 +262,11 @@ deny from 65.222.185.72/29
 
 Deny from env=bad_bot
 </Limit>
+</IfModule>
+
+# Block requests with a blank user agent and referer
+<IfModule mod_rewrite.c>
+RewriteCond %{HTTP_REFERER} ^$ [NC]
+RewriteCond %{HTTP_USER_AGENT} ^$ [NC]
+RewriteRule .* - [F]
 </IfModule>
