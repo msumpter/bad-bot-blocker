@@ -21,6 +21,7 @@ SetEnvIfNoCase User-Agent "^Black.Hole" bad_bot
 SetEnvIfNoCase User-Agent "^BlackWidow" bad_bot
 SetEnvIfNoCase User-Agent "BLEXBot" bad_bot
 SetEnvIfNoCase User-Agent "^BlowFish" bad_bot
+SetEnvIfNoCase User-Agent "BLP_bbot" bad_bot
 SetEnvIfNoCase User-Agent "^BotALot" bad_bot
 SetEnvIfNoCase User-Agent "Buddy" bad_bot
 SetEnvIfNoCase User-Agent "^BuiltBotTough" bad_bot
@@ -156,6 +157,7 @@ SetEnvIfNoCase User-Agent "Recorder" bad_bot
 SetEnvIfNoCase User-Agent "^ReGet" bad_bot
 SetEnvIfNoCase User-Agent "^RepoMonkey" bad_bot
 SetEnvIfNoCase User-Agent "^RMA" bad_bot
+SetEnvIfNoCase User-Agent "rogerbot" bad_bot
 SetEnvIfNoCase User-Agent "Siphon" bad_bot
 SetEnvIfNoCase User-Agent "^SiteSnagger" bad_bot
 SetEnvIfNoCase User-Agent "^SlySearch" bad_bot
@@ -189,6 +191,7 @@ SetEnvIfNoCase User-Agent "^TurnitinBot" bad_bot
 SetEnvIfNoCase User-Agent "^URLy.Warning" bad_bot
 SetEnvIfNoCase User-Agent "^Vacuum" bad_bot
 SetEnvIfNoCase User-Agent "^VCI" bad_bot
+SetEnvIfNoCase User-Agent "Vegi bot" bad_bot
 SetEnvIfNoCase User-Agent "^VoidEYE" bad_bot
 SetEnvIfNoCase User-Agent "^Web\ Image\ Collector" bad_bot
 SetEnvIfNoCase User-Agent "^Web\ Sucker" bad_bot
@@ -233,6 +236,9 @@ SetEnvIfNoCase User-Agent "Baiduspider" bad_bot
 # Aggressive Russian Search Engine
 SetEnvIfNoCase User-Agent "Yandex" bad_bot
 
+# Generic UAs that might be abusive
+#SetEnvIfNoCase User-Agent "curl" bad_bot
+#SetEnvIfNoCase User-Agent ""Go-http-client" bad_bot
 
 <Limit GET POST HEAD>
 Order Allow,Deny
